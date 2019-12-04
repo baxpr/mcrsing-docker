@@ -38,7 +38,7 @@ docker run -it --rm -v=matiso2019b:/matiso2019b mcrsing ls /matiso2019b
 MAC=02:42:ac:11:00:02
 SMAC=`echo $MAC | tr -d \:`
 INST=`pwd`/installer_input.txt
-docker run -it --name matsing_${SMAC} \
+docker run -it --name mcrsing_${SMAC} \
     --mount type=volume,src=matiso2019b,dst=/matiso2019b \
     --mount type=bind,src=${INST},dst=/tmp/installer_input.txt \
     --mac-address $MAC \
@@ -48,5 +48,5 @@ docker run -it --name matsing_${SMAC} \
       awk -F \= '$1=="destinationFolder" {print $2}'` "
 
 # Commit the container and save a backup
-docker commit matsing_${SMAC} matsing_${SMAC}
-docker save matsing_${SMAC} -o matsing_${SMAC}_docker.tar
+docker commit mcrsing_${SMAC} mcrsing_${SMAC}
+docker save mcrsing_${SMAC} -o mcrsing_${SMAC}_docker.tar
