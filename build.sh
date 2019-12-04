@@ -3,7 +3,7 @@
 # First build a docker image with the MATLAB Compiled Runtime. Automatic install 
 # is straightforward for this.
 echo Building docker
-docker build -f dockermatlab.Dockerfile -t mcrsing .
+docker build -f mcrsing.Dockerfile -t mcrsing .
 
 # We will create a docker volume with the MATLAB install file, starting with 
 # the distributed ISO. MATLAB_ISO_DIR on the host should contain the file 
