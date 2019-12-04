@@ -40,14 +40,21 @@ RUN cd /tmp && \
     rm -r MCR_installer
 
 # Singularity
-ARG singver=3.4.2
-RUN apt-get update && apt-get install -y squashfs-tools && \
-    cd /tmp && \
-    wget -nv "https://github.com/singularityware/singularity/releases/download/v${singver}/singularity-${singver}.tar.gz" && \
-    tar -xzf singularity-${singver}.tar.gz && \
-    cd singularity && \
-    ./configure --prefix=/usr/local && \
-    make && \
-    make install && \
-    cd - && \
-    rm -r singularity-${singver}.tar.gz singularity
+#ARG singver=3.4.2
+#RUN apt-get update && apt-get install -y squashfs-tools && \
+#    cd /tmp && \
+#    wget -nv "https://github.com/singularityware/singularity/releases/download/v${singver}/singularity-${singver}.tar.gz" && \
+#    tar -xzvf singularity-${singver}.tar.gz && \
+#    cd singularity && \
+#    ./configure --prefix=/usr/local && \
+#    make && \
+#    make install && \
+#    cd - && \
+#    rm -r singularity-${singver}.tar.gz singularity
+
+# Singularity
+# https://sylabs.io/guides/3.0/user-guide/installation.html
+# http://neuro.debian.net/
+RUN wget -O- http://neuro.debian.net/lists/bionic.us-tn.full | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list && \
+    sudo apt-key adv --recv-keys --keyserver hkp://pool.sks-keyservers.net:80 0xA5D32F012649A5A9 && \
+    apt-get update && apt-get install -y singularity-container && singularity --version

@@ -30,7 +30,6 @@ fi
 echo Checking volume
 docker run -it --rm -v=matiso2019b:/matiso2019b mcrsing ls /matiso2019b
 
-
 # New container where we will install matlab. Run the MATLAB install.
 # https://www.mathworks.com/matlabcentral/answers/259627-how-do-i-activate-matlab-without-an-internet-connection
 # Keep the license file on the host and mount at run, instead of installing it 
