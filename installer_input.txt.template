@@ -1,0 +1,5 @@
+destinationFolder=/usr/local/MATLAB/R2017a
+fileInstallationKey=
+agreeToLicense=yes
+outputFile=/tmp/mathworks.log
+mode=silent
