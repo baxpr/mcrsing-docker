@@ -40,14 +40,14 @@ RUN cd /tmp && \
     rm -r MCR_installer
 
 # Singularity
-ARG singver=3.4.1
+ARG singver=3.4.2
 RUN apt-get update && apt-get install -y squashfs-tools && \
     cd /tmp && \
     wget -nv "https://github.com/singularityware/singularity/releases/download/v${singver}/singularity-${singver}.tar.gz" && \
-    tar -xvzf singularity-${singver}.tar.gz && \
-    cd singularity-${singver} && \
+    tar -xzf singularity-${singver}.tar.gz && \
+    cd singularity && \
     ./configure --prefix=/usr/local && \
     make && \
     make install && \
     cd - && \
-    rm -r singularity-${singver}.tar.gz singularity-${singver}
+    rm -r singularity-${singver}.tar.gz singularity
