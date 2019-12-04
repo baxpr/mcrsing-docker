@@ -1,7 +1,7 @@
 # MATLAB/singularity docker image for OS X
 
 The goal is to create a docker image that can be run on OS X for the following purposes:
-  - Test a MATLAB, SPM, FSL analysis pipeline
+  - Test a MATLAB analysis pipeline
   - Compile a MATLAB pipeline into a standalone executable
   - Create a singularity image for an analysis pipeline
 
