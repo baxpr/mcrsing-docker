@@ -1,3 +1,4 @@
 installer_input.txt
 license.lic
 localdocker_example.sh
+*.tar.gz
