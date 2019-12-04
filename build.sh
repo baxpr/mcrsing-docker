@@ -8,7 +8,7 @@ docker build -f dockermatlab.Dockerfile -t mcrsing .
 # We will create a docker volume with the MATLAB install file, starting with 
 # the distributed ISO. MATLAB_ISO_DIR on the host should contain the file 
 #     R2019b_Linux.iso
-MATLAB_ISO_DIR=~/Downloads
+MATLAB_ISO_DIR=~
 
 # Create a container with the MATLAB install ISO mounted, and copy the install
 # files from there to a newly created volume matiso2019b. This requires privileged 
@@ -19,11 +19,11 @@ if [ "$files" == "" ] ; then
     docker run -it --rm --name tmp --privileged \
         --mount type=volume,src=matiso2019b,dst=/matiso2019b \
         --mount type=bind,src=${MATLAB_ISO_DIR},dst=/MATLAB_ISO \
-	    mcrsing /bin/bash -c "\
+        mcrsing /bin/bash -c "\
         mkdir -p /mnt/disk1 && \
         mount -t iso9660 -o loop /MATLAB_ISO/R2019b_Linux.iso /mnt/disk1 && \
         cp -R /mnt/disk1/* /matiso2019b && \
-	    chmod -R +w /matiso2019b "
+        chmod -R +w /matiso2019b "
 fi
 
 # Check that the files are in our volume now
